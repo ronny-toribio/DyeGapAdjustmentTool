@@ -5,7 +5,6 @@
 import os
 import os.path
 from time import sleep
-from xml.dom.minidom import parseString as parseXMLString
 
 import_errors = 0
 try:
@@ -30,11 +29,11 @@ FILE_SAVE_SUCCESSFULL = " The changes were saved successfully."
 FILE_SAVE_UNSUCCESSFULL = "The changes could not be saved."
 UNSAVED_CHANGES = " There are unsaved changes."
 PRINTER_IP = "127.0.0.1"
-RAW_SET_DYE_COMMAND = """<?xml version="1.0" encoding="UTF-8"?>
-<ompcap:OemsiMediapathFunc xmlns:ompcap=http://www.hp.com/schemas/imaging/con/ledm/oemsimediapathcap/2008/03/21 \>
-   <ompcap:CmdCode>0x12</ompcap:CmdCode>
-   <ompcap:InputParam type="string">oem_set_alignment_values 0 0 {} {} {} {}</ompcap:InputParam>
-</ompcap:OemsiMediapathFunc>"""
+RAW_SET_DYE_COMMAND = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\r\n"
+RAW_SET_DYE_COMMAND += "\t<ompcap:OemsiMediapathFunc xmlns:ompcap=\"http://www.hp.com/schemas/imaging/con/ledm/oemsimediapathcap/2008/03/21\">\r\n"
+RAW_SET_DYE_COMMAND += "\t<ompcap:CmdCode>18</ompcap:CmdCode>\r\n"
+RAW_SET_DYE_COMMAND += "\t<ompcap:InputParam type=\"string\">oem_set_alignment_values 0 ,0,{},{},{},{}</ompcap:InputParam>\r\n"
+RAW_SET_DYE_COMMAND += "</ompcap:OemsiMediapathFunc>\r\n"
 
 GAP_VALUE_RANGE = [-200, -192, -184, -176, -168, -160, -152, -144, -136, -128, -120, -112, -104, -96, -88, -80, -72, -64, -56, -48, -40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200]
 
@@ -44,28 +43,34 @@ def last_print_value(dye):
    else:
       return 19200
 
-def set_dye(dye, color, value):
-   r = post("http://{}/OemsiMediapath/Function".format(PRINTER_IP), data=RAW_SET_DYE_COMMAND.format(dye, color, value, last_print_value(dye)))
-   if r.status_code != 200:
-      messagebox.showinfo("set_dye() error", "HTTP response code is {}".format(r.status_code))
-      return False
-   return True
+def get_raw_line_values(line):
+   new_line = str()
+   for c in line:
+       if c in "0123456789,":
+           new_line += c
+   return new_line.split(",")
 
-def check_status():
-   r = get("http://{}/OemsiMediapath/Function".format(PRINTER_IP))
+def set_dye(dye, color, value):
+   success = False
+   xml = RAW_SET_DYE_COMMAND.format(dye, color, value, last_print_value(dye))
+   headers = {}
+   headers["Accept"] = "*/*"
+   headers["Content-Type"] = "text/xml; charset=UTF-8"
+   headers["User-Agent"] = "MERONG(0.9/;p)"
+   headers["Host"] = f"{PRINTER_IP}:8080"
+   headers["Content-Length"] = str(len(xml))
+   headers["Connection"] = "Keep-Alive"
+   headers["Cache-Control"] = "no-cache"
+   r = post(f"http://{PRINTER_IP}:8080/OemsiMediapath/Function", headers=headers, data=xml)
    if r.status_code != 200:
-      messagebox.showinfo("check_status() error", "HTTP response code is {}".format(r.status_code))
-      return False
-   content = r.content
-   if content:
-      if content[0] == "0":
-         return True
-      else:
-         messagebox.showinfo("check_status() error", "Content is {}".format(content))
-   return False
+      messagebox.showinfo("set_dye() error", f"HTTP response code is {r.status_code}")
+   elif "text/xml" in r.headers["Content-Type"]:
+      content = r.content.decode()
+      if "<ompcap:Result>0</ompcap:Result>" in content:
+         success = True
+   return success
 
 class DyeGapAdjustmentTool:
-   filepath = None
    has_changed = False
    def __init__(self):
       self.root = tk.Tk()
@@ -73,7 +78,7 @@ class DyeGapAdjustmentTool:
       height = 355
       screen_wcenter = int((self.root.winfo_screenwidth() / 2) - (width / 2))
       screen_hcenter = int((self.root.winfo_screenheight() / 2) - (height / 2))
-      self.root.geometry("{}x{}+{}+{}".format(width, height, screen_wcenter, screen_hcenter))
+      self.root.geometry(f"{width}x{height}+{screen_wcenter}+{screen_hcenter}")
       self.root.resizable(False, False)
       self.root.title("Dye Gap Adjustment Tool")
 
@@ -669,20 +674,15 @@ class DyeGapAdjustmentTool:
          return False
       dye_values = {}
       with open(path, "r") as f:
-         for xmlfile in f.read().split("\n\n"):
-            if "?xml" in xmlfile:
-               dom = parseXMLString(xmlfile)
-               for iparam in dom.getElementsByTagName("ompcapn:InputParam"):
-                  children = iparam.childNodes
-                  if children:
-                     node = children[0]
-                     if node.nodeType == node.TEXT_NODE and "oem_set_alignment_values" in node.data:
-                        values = node.data.replace("oem_set_alignment_values", "").replace(" ", "").split(",")
-                        if values[0] == "0" and values[3] == "0":
-                           try:
-                              dye_values[int(values[2])] = int(values[4])
-                           except:
-                              return False
+         content = f.read()
+         for line in content.split("\n"):
+            if "oem_set_alignment_values" in line:
+               values = get_raw_line_values(line)
+               if values[0] == "0" and values[3] == "0":
+                  try:
+                     dye_values[int(values[2])] = int(values[4])
+                  except:
+                     return False
       if len(dye_values) != 14:
          return False
       for dye, value in dye_values.items():
@@ -727,15 +727,13 @@ class DyeGapAdjustmentTool:
       return True
 
    def save_changes(self):
-      if not self.has_changed or not self.filepath:
+      if not self.has_changed:
          return
       for dye in self.changed_dyes:
          if not self.update_dye(dye):
             self.statusVar.set(FILE_SAVE_UNSUCCESSFULL)
             self.statusBar.configure(fg="red")
             return
-      if not check_status():
-         return
       self.changed_dyes = set()
       self.has_changed = False
       self.statusVar.set(FILE_SAVE_SUCCESSFULL)
