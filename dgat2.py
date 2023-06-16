@@ -5,12 +5,12 @@
 import os
 import os.path
 from time import sleep
-from xml.dom.minidom import parseString as parseXMLString
 
 import_errors = 0
 try:
    import tkinter as tk
    import tkinter.ttk as ttk
+   from tkinter import filedialog
    from tkinter import messagebox
 except:
    print("The tkinter module is not installed.")
@@ -42,6 +42,13 @@ def last_print_value(dye):
       return 1200
    else:
       return 19200
+
+def get_raw_line_values(line):
+   new_line = str()
+   for c in line:
+       if c in "0123456789,":
+           new_line += c
+   return new_line.split(",")
 
 def set_dye(dye, color, value):
    r = post("http://{}/OemsiMediapath/Function".format(PRINTER_IP), data=RAW_SET_DYE_COMMAND.format(dye, color, value, last_print_value(dye)))
@@ -609,7 +616,6 @@ class DyeGapAdjustmentTool:
          if i > num:
             return i
 
-   # Change to xml file
    def load_APA_file(self):
       sys_drive = os.getenv("SYSTEMDRIVE")
       if not sys_drive:
@@ -663,29 +669,21 @@ class DyeGapAdjustmentTool:
             self.dye_13_dec["state"] = "normal"
             self.statusBar.configure(fg="blue")
             self.statusVar.set(FILE_LOAD_SUCCESSFULL)
-         else:
-            messagebox.showwarning(title="File Error", message="Please load a correct apa_data.pcl file.")
 
-   # change parsing to xml parsing
    def parse_APA_file(self, path):
       if not os.path.exists(path):
          return False
       dye_values = {}
       with open(path, "r") as f:
-         for xmlfile in f.read().split("\n\n"):
-            if "?xml" in xmlfile:
-               dom = parseXMLString(xmlfile)
-               for iparam in dom.getElementsByTagName("ompcapn:InputParam"):
-                  children = iparam.childNodes
-                  if children:
-                     node = children[0]
-                     if node.nodeType == node.TEXT_NODE and "oem_set_alignment_values" in node.data:
-                        values = node.data.replace("oem_set_alignment_values", "").replace(" ", "").split(",")
-                        if values[0] == "0" and values[3] == "0":
-                           try:
-                              dye_values[int(values[2])] = int(values[4])
-                           except:
-                              return False
+         content = f.read()
+         for line in content.split("\n"):
+            if "oem_set_alignment_values" in line:
+               values = get_raw_line_values(line)
+               if values[0] == "0" and values[3] == "0":
+                  try:
+                     dye_values[int(values[2])] = int(values[4])
+                  except:
+                     return False
       if len(dye_values) != 14:
          return False
       for dye, value in dye_values.items():
