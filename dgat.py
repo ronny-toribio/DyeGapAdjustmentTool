@@ -217,6 +217,68 @@ class DyeGapAdjustmentTool:
       self.save_button = tk.Button(self.button_panel, text="Apply Changes", command=self.saveAPAFile)
       self.save_button.grid(column=1, row=6)
       self.save_button["state"] = "disabled"
+
+      # Button images
+      if os.path.exists("tri-up.png") and os.path.exists("tri-down.png"):
+         tri_up = tk.PhotoImage(file="tri-up.png")
+         tri_down = tk.PhotoImage(file="tri-down.png")
+         self.dye_0_inc.configure(image=tri_up, text="")
+         self.dye_0_dec.configure(image=tri_down, text="")
+         self.dye_0_inc.image = tri_up
+         self.dye_0_dec.image = tri_down
+         self.dye_1_inc.configure(image=tri_up, text="")
+         self.dye_1_dec.configure(image=tri_down, text="")
+         self.dye_1_inc.image = tri_up
+         self.dye_1_dec.image = tri_down
+         self.dye_2_inc.configure(image=tri_up, text="")
+         self.dye_2_dec.configure(image=tri_down, text="")
+         self.dye_2_inc.image = tri_up
+         self.dye_2_dec.image = tri_down
+         self.dye_3_inc.configure(image=tri_up, text="")
+         self.dye_3_dec.configure(image=tri_down, text="")
+         self.dye_3_inc.image = tri_up
+         self.dye_3_dec.image = tri_down
+         self.dye_4_inc.configure(image=tri_up, text="")
+         self.dye_4_dec.configure(image=tri_down, text="")
+         self.dye_4_inc.image = tri_up
+         self.dye_4_dec.image = tri_down
+         self.dye_5_inc.configure(image=tri_up, text="")
+         self.dye_5_dec.configure(image=tri_down, text="")
+         self.dye_5_inc.image = tri_up
+         self.dye_5_dec.image = tri_down
+         self.dye_6_inc.configure(image=tri_up, text="")
+         self.dye_6_dec.configure(image=tri_down, text="")
+         self.dye_6_inc.image = tri_up
+         self.dye_6_dec.image = tri_down
+         self.dye_7_inc.configure(image=tri_up, text="")
+         self.dye_7_dec.configure(image=tri_down, text="")
+         self.dye_7_inc.image = tri_up
+         self.dye_7_dec.image = tri_down
+         self.dye_8_inc.configure(image=tri_up, text="")
+         self.dye_8_dec.configure(image=tri_down, text="")
+         self.dye_8_inc.image = tri_up
+         self.dye_8_dec.image = tri_down
+         self.dye_9_inc.configure(image=tri_up, text="")
+         self.dye_9_dec.configure(image=tri_down, text="")
+         self.dye_9_inc.image = tri_up
+         self.dye_9_dec.image = tri_down
+         self.dye_10_inc.configure(image=tri_up, text="")
+         self.dye_10_dec.configure(image=tri_down, text="")
+         self.dye_10_inc.image = tri_up
+         self.dye_10_dec.image = tri_down
+         self.dye_11_inc.configure(image=tri_up, text="")
+         self.dye_11_dec.configure(image=tri_down, text="")
+         self.dye_11_inc.image = tri_up
+         self.dye_11_dec.image = tri_down
+         self.dye_12_inc.configure(image=tri_up, text="")
+         self.dye_12_dec.configure(image=tri_down, text="")
+         self.dye_12_inc.image = tri_up
+         self.dye_12_dec.image = tri_down
+         self.dye_13_inc.configure(image=tri_up, text="")
+         self.dye_13_dec.configure(image=tri_down, text="")
+         self.dye_13_inc.image = tri_up
+         self.dye_13_dec.image = tri_down
+         
       
    def increment_dye_0(self):
       val = self.dye_0_var.get()
