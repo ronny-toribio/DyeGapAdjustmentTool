@@ -5,6 +5,7 @@
 import os
 import os.path
 from time import sleep
+from xml.dom.minidom import parseString as parseXMLString
 
 import_errors = 0
 try:
@@ -42,13 +43,6 @@ def last_print_value(dye):
       return 1200
    else:
       return 19200
-
-def get_raw_line_values(line):
-   new_line = str()
-   for c in line:
-       if c in "0123456789,":
-           new_line += c
-   return new_line.split(",")
 
 def set_dye(dye, color, value):
    r = post("http://{}/OemsiMediapath/Function".format(PRINTER_IP), data=RAW_SET_DYE_COMMAND.format(dye, color, value, last_print_value(dye)))
@@ -675,15 +669,20 @@ class DyeGapAdjustmentTool:
          return False
       dye_values = {}
       with open(path, "r") as f:
-         content = f.read()
-         for line in content.split("\n"):
-            if "oem_set_alignment_values" in line:
-               values = get_raw_line_values(line)
-               if values[0] == "0" and values[3] == "0":
-                  try:
-                     dye_values[int(values[2])] = int(values[4])
-                  except:
-                     return False
+         for xmlfile in f.read().split("\n\n"):
+            if "?xml" in xmlfile:
+               dom = parseXMLString(xmlfile)
+               for iparam in dom.getElementsByTagName("ompcapn:InputParam"):
+                  children = iparam.childNodes
+                  if children:
+                     node = children[0]
+                     if node.nodeType == node.TEXT_NODE and "oem_set_alignment_values" in node.data:
+                        values = node.data.replace("oem_set_alignment_values", "").replace(" ", "").split(",")
+                        if values[0] == "0" and values[3] == "0":
+                           try:
+                              dye_values[int(values[2])] = int(values[4])
+                           except:
+                              return False
       if len(dye_values) != 14:
          return False
       for dye, value in dye_values.items():
