@@ -2,6 +2,7 @@
 # Author: Ronny Toribio
 # Project: Dye Gap Adjustment Tool
 # Description: A dye gap adjustment tool that edits the apa_data.pcl file.
+import os
 import os.path
 
 import tkinter as tk
@@ -34,7 +35,6 @@ class DyeGapAdjustmentTool:
       self.dye_0_var.set(0)
       self.dye_0_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 0")
       self.dye_0_panel.grid(column=0, row=0, padx=5, pady=5)
-      self.dye_0_panel.grid_propagate(1)
       self.dye_0_lab = tk.Label(self.dye_0_panel, width=4, textvariable=self.dye_0_var)
       self.dye_0_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_0_inc = tk.Button(self.dye_0_panel, text="U", command=self.increment_dye_0)
@@ -47,7 +47,6 @@ class DyeGapAdjustmentTool:
       self.dye_1_var.set(0)
       self.dye_1_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 1")
       self.dye_1_panel.grid(column=1, row=0, padx=5, pady=5)
-      self.dye_1_panel.grid_propagate(1)
       self.dye_1_lab = tk.Label(self.dye_1_panel, width=4, textvariable=self.dye_1_var)
       self.dye_1_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_1_inc = tk.Button(self.dye_1_panel, text="U", command=self.increment_dye_1)
@@ -60,7 +59,6 @@ class DyeGapAdjustmentTool:
       self.dye_2_var.set(0)
       self.dye_2_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 2")
       self.dye_2_panel.grid(column=2, row=0, padx=5, pady=5)
-      self.dye_2_panel.grid_propagate(1)
       self.dye_2_lab = tk.Label(self.dye_2_panel, width=4, textvariable=self.dye_2_var)
       self.dye_2_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_2_inc = tk.Button(self.dye_2_panel, text="U", command=self.increment_dye_2)
@@ -73,7 +71,6 @@ class DyeGapAdjustmentTool:
       self.dye_3_var.set(0)
       self.dye_3_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 3")
       self.dye_3_panel.grid(column=3, row=0, padx=5, pady=5)
-      self.dye_3_panel.grid_propagate(1)
       self.dye_3_lab = tk.Label(self.dye_3_panel, width=4, textvariable=self.dye_3_var)
       self.dye_3_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_3_inc = tk.Button(self.dye_3_panel, text="U", command=self.increment_dye_3)
@@ -99,7 +96,6 @@ class DyeGapAdjustmentTool:
       self.dye_5_var.set(0)
       self.dye_5_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 5")
       self.dye_5_panel.grid(column=0, row=1, padx=5, pady=5)
-      self.dye_5_panel.grid_propagate(1)
       self.dye_5_lab = tk.Label(self.dye_5_panel, width=4, textvariable=self.dye_5_var)
       self.dye_5_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_5_inc = tk.Button(self.dye_5_panel, text="U", command=self.increment_dye_5)
@@ -112,7 +108,6 @@ class DyeGapAdjustmentTool:
       self.dye_6_var.set(0)
       self.dye_6_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 6")
       self.dye_6_panel.grid(column=1, row=1, padx=5, pady=5)
-      self.dye_6_panel.grid_propagate(1)
       self.dye_6_lab = tk.Label(self.dye_6_panel, width=4, textvariable=self.dye_6_var)
       self.dye_6_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_6_inc = tk.Button(self.dye_6_panel, text="U", command=self.increment_dye_6)
@@ -125,7 +120,6 @@ class DyeGapAdjustmentTool:
       self.dye_7_var.set(0)
       self.dye_7_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 7")
       self.dye_7_panel.grid(column=2, row=1, padx=5, pady=5)
-      self.dye_7_panel.grid_propagate(1)
       self.dye_7_lab = tk.Label(self.dye_7_panel, width=4, textvariable=self.dye_7_var)
       self.dye_7_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_7_inc = tk.Button(self.dye_7_panel, text="U", command=self.increment_dye_7)
@@ -138,7 +132,6 @@ class DyeGapAdjustmentTool:
       self.dye_8_var.set(0)
       self.dye_8_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 8")
       self.dye_8_panel.grid(column=3, row=1, padx=5, pady=5)
-      self.dye_8_panel.grid_propagate(1)
       self.dye_8_lab = tk.Label(self.dye_8_panel, width=4, textvariable=self.dye_8_var)
       self.dye_8_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_8_inc = tk.Button(self.dye_8_panel, text="U", command=self.increment_dye_8)
@@ -151,7 +144,6 @@ class DyeGapAdjustmentTool:
       self.dye_9_var.set(0)
       self.dye_9_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 9")
       self.dye_9_panel.grid(column=4, row=1, padx=5, pady=5)
-      self.dye_9_panel.grid_propagate(1)
       self.dye_9_lab = tk.Label(self.dye_9_panel, width=4, textvariable=self.dye_9_var)
       self.dye_9_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_9_inc = tk.Button(self.dye_9_panel, text="U", command=self.increment_dye_9)
@@ -164,7 +156,6 @@ class DyeGapAdjustmentTool:
       self.dye_10_var.set(0)
       self.dye_10_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 10")
       self.dye_10_panel.grid(column=0, row=2, padx=5, pady=5)
-      self.dye_10_panel.grid_propagate(1)
       self.dye_10_lab = tk.Label(self.dye_10_panel, width=4, textvariable=self.dye_10_var)
       self.dye_10_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_10_inc = tk.Button(self.dye_10_panel, text="U", command=self.increment_dye_10)
@@ -177,7 +168,6 @@ class DyeGapAdjustmentTool:
       self.dye_11_var.set(0)
       self.dye_11_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 11")
       self.dye_11_panel.grid(column=1, row=2, padx=5, pady=5)
-      self.dye_11_panel.grid_propagate(1)
       self.dye_11_lab = tk.Label(self.dye_11_panel, width=4, textvariable=self.dye_11_var)
       self.dye_11_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_11_inc = tk.Button(self.dye_11_panel, text="U", command=self.increment_dye_11)
@@ -190,7 +180,6 @@ class DyeGapAdjustmentTool:
       self.dye_12_var.set(0)
       self.dye_12_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 12")
       self.dye_12_panel.grid(column=2, row=2, padx=5, pady=5)
-      self.dye_12_panel.grid_propagate(1)
       self.dye_12_lab = tk.Label(self.dye_12_panel, width=4, textvariable=self.dye_12_var)
       self.dye_12_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_12_inc = tk.Button(self.dye_12_panel, text="U", command=self.increment_dye_12)
@@ -203,7 +192,6 @@ class DyeGapAdjustmentTool:
       self.dye_13_var.set(0)
       self.dye_13_panel = ttk.LabelFrame(self.dyes_panel, text="Dye 13")
       self.dye_13_panel.grid(column=3, row=2, padx=5, pady=5)
-      self.dye_13_panel.grid_propagate(1)
       self.dye_13_lab = tk.Label(self.dye_13_panel, width=4, textvariable=self.dye_13_var)
       self.dye_13_lab.grid(column=0, row=0, ipadx=2, ipady=2)
       self.dye_13_inc = tk.Button(self.dye_13_panel, text="U", command=self.increment_dye_13)
@@ -464,7 +452,8 @@ class DyeGapAdjustmentTool:
             return i
 
    def loadAPAFile(self):
-      path = filedialog.askopenfilename(title = "Load apa_data.pcl file", initialdir="C:\\", filetypes = [("APA Data File", "*.pcl")])
+      sys_drive = os.getenv("SYSTEMDRIVE")
+      path = filedialog.askopenfilename(title = "Load apa_data.pcl file", initialdir=sys_drive, filetypes = [("APA Data File", "*.pcl")])
       if path:
          if self.parseAPAFile(path):
             self.save_button["state"] = "normal"
