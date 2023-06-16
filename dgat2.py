@@ -6,10 +6,22 @@ import os
 import os.path
 from time import sleep
 from xml.dom.minidom import parseString as parseXMLString
-import tkinter as tk
-import tkinter.ttk as ttk
-from tkinter import messagebox
-from requests import post, get
+
+import_errors = 0
+try:
+   import tkinter as tk
+   import tkinter.ttk as ttk
+   from tkinter import messagebox
+except:
+   print("The tkinter module is not installed.")
+   import_errors += 1
+try:
+   from requests import post, get
+except:
+   print("The requests module is not installed.")
+   import_errors += 1
+if import_errors:
+   exit(1)
 
 DEFAULT_STATUS = " Reading current dye values."
 FILE_LOAD_SUCCESSFULL = " The apa_data.xml file was loaded successfully."
@@ -676,7 +688,7 @@ class DyeGapAdjustmentTool:
                               return False
       if len(dye_values) != 14:
          return False
-      for dye, value in dye_values.items()
+      for dye, value in dye_values.items():
          if dye == 0:
             self.dye_0_var.set(self.validate_gap_value(value))
          elif dye == 1:
