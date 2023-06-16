@@ -16,6 +16,7 @@ GAP_VALUE_RANGE = [-200, -192, -184, -176, -168, -160, -152, -144, -136, -128, -
 
 class DyeGapAdjustmentTool:
    filepath = None
+   has_changed = False
    def __init__(self):
       self.root = tk.Tk()
       self.root.geometry("460x340")
@@ -221,141 +222,169 @@ class DyeGapAdjustmentTool:
       val = self.dye_0_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_0_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_0(self):
       val = self.dye_0_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_0_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_1(self):
       val = self.dye_1_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_1_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_1(self):
       val = self.dye_1_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_1_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_2(self):
       val = self.dye_2_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_2_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_2(self):
       val = self.dye_2_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_2_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_3(self):
       val = self.dye_3_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_3_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_3(self):
       val = self.dye_3_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_3_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_4(self):
       val = self.dye_4_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_4_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_4(self):
       val = self.dye_4_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_4_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_5(self):
       val = self.dye_5_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_5_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_5(self):
       val = self.dye_5_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_5_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_6(self):
       val = self.dye_6_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_6_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_6(self):
       val = self.dye_6_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_6_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_7(self):
       val = self.dye_7_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_7_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_7(self):
       val = self.dye_7_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_7_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_8(self):
       val = self.dye_8_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_8_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_8(self):
       val = self.dye_8_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_8_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_9(self):
       val = self.dye_9_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_9_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_9(self):
       val = self.dye_9_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_9_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_10(self):
       val = self.dye_10_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_10_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_10(self):
       val = self.dye_10_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_10_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_11(self):
       val = self.dye_11_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_11_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_11(self):
       val = self.dye_11_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_11_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_12(self):
       val = self.dye_12_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_12_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_12(self):
       val = self.dye_12_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_12_var.set(val - 8)
+         self.has_changed = True
 
    def increment_dye_13(self):
       val = self.dye_13_var.get()
       if val in GAP_VALUE_RANGE and val < 200:
          self.dye_13_var.set(val + 8)
+         self.has_changed = True
 
    def decrement_dye_13(self):
       val = self.dye_13_var.get()
       if val in GAP_VALUE_RANGE and val > -200:
          self.dye_13_var.set(val - 8)
+         self.has_changed = True
 
    def validateGapValue(self, num):
       try:
@@ -377,10 +406,22 @@ class DyeGapAdjustmentTool:
       if path:
          if self.parseAPAFile(path):
             self.save_button["state"] = "normal"
+            self.dye_0_lab.configure(fg="blue")
+            self.dye_1_lab.configure(fg="blue")
+            self.dye_2_lab.configure(fg="blue")
+            self.dye_3_lab.configure(fg="blue")
+            self.dye_4_lab.configure(fg="blue")
+            self.dye_5_lab.configure(fg="blue")
+            self.dye_6_lab.configure(fg="blue")
+            self.dye_7_lab.configure(fg="blue")
+            self.dye_8_lab.configure(fg="blue")
+            self.dye_9_lab.configure(fg="blue")
+            self.dye_10_lab.configure(fg="blue")
+            self.dye_11_lab.configure(fg="blue")
+            self.dye_12_lab.configure(fg="blue")
+            self.dye_13_lab.configure(fg="blue")
          else:
             messagebox.showwarning(title="File Error", message="Please load a correct apa_data.pcl file.")
-      else:
-         pass
 
    def parseAPAFile(self, path):
       if not os.path.exists(path):
@@ -429,7 +470,7 @@ class DyeGapAdjustmentTool:
       return True
 
    def saveAPAFile(self):
-      if not self.filepath:
+      if not self.has_changed or not self.filepath:
          return
       with open(self.filepath, "wb") as f:
           f.write(APA_FILE.format(self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(),
@@ -447,6 +488,7 @@ class DyeGapAdjustmentTool:
                                   self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(),
                                   self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get()).encode())
           f.write(APA_FILE_2)
+      self.has_changed = False
 
    def mainloop(self):
       self.root.mainloop()
