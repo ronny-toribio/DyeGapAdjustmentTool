@@ -18,7 +18,20 @@ UNSAVED_CHANGES = " There are unsaved changes."
 APA_FILE = "%Pcal_pg.set_pa_value_res 0,0,0,0,{},1200;cal_pg.set_pa_value_res 0,0,0,1,{},1200;cal_pg.set_pa_value_res 0,0,0,2,{},1200;cal_pg.set_pa_value_res 0,0,0,3,{},1200;cal_pg.set_pa_value_res 0, 0,1,0,{},19200;cal_pg.set_pa_value_res 0, 0,1,1,{},19200;cal_pg.set_pa_value_res 0, 0,1,2,{},19200;cal_pg.set_pa_value_res 0, 0,1,3,{},19200;cal_pg.set_pa_value_res 0, 0,2,0,{},19200;cal_pg.set_pa_value_res 0, 0,2,1,{},19200;cal_pg.set_pa_value_res 0, 0,2,2,{},19200;cal_pg.set_pa_value_res 0, 0,2,3,{},19200;cal_pg.set_pa_value_res 0, 0,3,0,{},19200;cal_pg.set_pa_value_res 0, 0,3,1,{},19200;cal_pg.set_pa_value_res 0, 0,3,2,{},19200;cal_pg.set_pa_value_res 0, 0,3,3,{},19200;cal_pg.set_pa_value_res 0, 0,4,0,{},19200;cal_pg.set_pa_value_res 0, 0,4,1,{},19200;cal_pg.set_pa_value_res 0, 0,4,2,{},19200;cal_pg.set_pa_value_res 0, 0,4,3,{},19200;cal_pg.set_pa_value_res 0, 0,5,0,{},19200;cal_pg.set_pa_value_res 0, 0,5,1,{},19200;cal_pg.set_pa_value_res 0, 0,5,2,{},19200;cal_pg.set_pa_value_res 0, 0,5,3,{},19200;cal_pg.set_pa_value_res 0, 0,6,0,{},19200;cal_pg.set_pa_value_res 0, 0,6,1,{},19200;cal_pg.set_pa_value_res 0, 0,6,2,{},19200;cal_pg.set_pa_value_res 0, 0,6,3,{},19200;cal_pg.set_pa_value_res 0, 0,7,0,{},19200;cal_pg.set_pa_value_res 0, 0,7,1,{},19200;cal_pg.set_pa_value_res 0, 0,7,2,{},19200;cal_pg.set_pa_value_res 0, 0,7,3,{},19200;cal_pg.set_pa_value_res 0, 0,8,0,{},19200;cal_pg.set_pa_value_res 0, 0,8,1,{},19200;cal_pg.set_pa_value_res 0, 0,8,2,{},19200;cal_pg.set_pa_value_res 0, 0,8,3,{},19200;cal_pg.set_pa_value_res 0, 0,9,0,{},19200;cal_pg.set_pa_value_res 0, 0,9,1,{},19200;cal_pg.set_pa_value_res 0, 0,9,2,{},19200;cal_pg.set_pa_value_res 0, 0,9,3,{},19200;cal_pg.set_pa_value_res 0, 0,10,0,{},19200;cal_pg.set_pa_value_res 0, 0,10,1,{},19200;cal_pg.set_pa_value_res 0, 0,10,2,{},19200;cal_pg.set_pa_value_res 0, 0,10,3,{},19200;cal_pg.set_pa_value_res 0, 0,11,0,{},19200;cal_pg.set_pa_value_res 0, 0,11,1,{},19200;cal_pg.set_pa_value_res 0, 0,11,2,{},19200;cal_pg.set_pa_value_res 0, 0,11,3,{},19200;cal_pg.set_pa_value_res 0, 0,12,0,{},19200;cal_pg.set_pa_value_res 0, 0,12,1,{},19200;cal_pg.set_pa_value_res 0, 0,12,2,{},19200;cal_pg.set_pa_value_res 0, 0,12,3,{},19200;cal_pg.set_pa_value_res 0, 0,13,0,{},19200;cal_pg.set_pa_value_res 0, 0,13,1,{},19200;cal_pg.set_pa_value_res 0, 0,13,2,{},19200;cal_pg.set_pa_value_res 0, 0,13,3,{},19200;"
 APA_FILE_2 = b"cal_pg.set_pa_value_res 1, 0,0,0,0,2400;cal_pg.set_pa_value_res 1, 0,0,1,0,2400;cal_pg.set_pa_value_res 1, 0,0,2,0,2400;cal_pg.set_pa_value_res 1, 0,0,3,0,2400;cal_pg.set_pa_value_res 1, 0,1,0,-4,19200;cal_pg.set_pa_value_res 1, 0,1,1,-4,19200;cal_pg.set_pa_value_res 1, 0,1,2,-4,19200;cal_pg.set_pa_value_res 1, 0,1,3,-4,19200;cal_pg.set_pa_value_res 1, 0,2,0,-28,19200;cal_pg.set_pa_value_res 1, 0,2,1,-28,19200;cal_pg.set_pa_value_res 1, 0,2,2,-28,19200;cal_pg.set_pa_value_res 1, 0,2,3,-28,19200;cal_pg.set_pa_value_res 1, 0,3,0,4,19200;cal_pg.set_pa_value_res 1, 0,3,1,4,19200;cal_pg.set_pa_value_res 1, 0,3,2,4,19200;cal_pg.set_pa_value_res 1, 0,3,3,4,19200;cal_pg.set_pa_value_res 1, 0,4,0,17,19200;cal_pg.set_pa_value_res 1, 0,4,1,17,19200;cal_pg.set_pa_value_res 1, 0,4,2,17,19200;cal_pg.set_pa_value_res 1, 0,4,3,17,19200;cal_pg.set_pa_value_res 1, 0,5,0,-39,19200;cal_pg.set_pa_value_res 1, 0,5,1,-39,19200;cal_pg.set_pa_value_res 1, 0,5,2,-39,19200;cal_pg.set_pa_value_res 1, 0,5,3,-39,19200;cal_pg.set_pa_value_res 1, 0,6,0,7,19200;cal_pg.set_pa_value_res 1, 0,6,1,7,19200;cal_pg.set_pa_value_res 1, 0,6,2,7,19200;cal_pg.set_pa_value_res 1, 0,6,3,7,19200;cal_pg.set_pa_value_res 1, 0,7,0,-20,19200;cal_pg.set_pa_value_res 1, 0,7,1,-20,19200;cal_pg.set_pa_value_res 1, 0,7,2,-20,19200;cal_pg.set_pa_value_res 1, 0,7,3,-20,19200;cal_pg.set_pa_value_res 1, 0,8,0,34,19200;cal_pg.set_pa_value_res 1, 0,8,1,34,19200;cal_pg.set_pa_value_res 1, 0,8,2,34,19200;cal_pg.set_pa_value_res 1, 0,8,3,34,19200;cal_pg.set_pa_value_res 1, 0,9,0,-28,19200;cal_pg.set_pa_value_res 1, 0,9,1,-28,19200;cal_pg.set_pa_value_res 1, 0,9,2,-28,19200;cal_pg.set_pa_value_res 1, 0,9,3,-28,19200;cal_pg.set_pa_value_res 1, 0,10,0,12,19200;cal_pg.set_pa_value_res 1, 0,10,1,12,19200;cal_pg.set_pa_value_res 1, 0,10,2,12,19200;cal_pg.set_pa_value_res 1, 0,10,3,12,19200;cal_pg.set_pa_value_res 1, 0,11,0,-9,19200;cal_pg.set_pa_value_res 1, 0,11,1,-9,19200;cal_pg.set_pa_value_res 1, 0,11,2,-9,19200;cal_pg.set_pa_value_res 1, 0,11,3,-9,19200;cal_pg.set_pa_value_res 1, 0,12,0,16,19200;cal_pg.set_pa_value_res 1, 0,12,1,16,19200;cal_pg.set_pa_value_res 1, 0,12,2,16,19200;cal_pg.set_pa_value_res 1, 0,12,3,16,19200;cal_pg.set_pa_value_res 1, 0,13,0,-21,19200;cal_pg.set_pa_value_res 1, 0,13,1,-21,19200;cal_pg.set_pa_value_res 1, 0,13,2,-21,19200;cal_pg.set_pa_value_res 1, 0,13,3,-21,19200;cal_pg.commit_cal_values 0 0;sweep_mgr.refresh_masks;udw.quit;%-12345X"
 
-GAP_VALUE_RANGE = [-200, -192, -184, -176, -168, -160, -152, -144, -136, -128, -120, -112, -104, -96, -88, -80, -72, -64, -56, -48, -40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200]
+GAP_VALUE_RANGE = [
+   -200, -192, -184, -176, -168,
+   -160, -152, -144, -136, -128,
+   -120, -112, -104,  -96,  -88,
+    -80,  -72,  -64,  -56,  -48,
+    -40,  -32,  -24,  -16,   -8,
+      0,
+      8,   16,   24,   32,   40,
+     48,   56,   64,   72,   80,
+     88,   96,  104,  112,  120,
+    128,  136,  144,  152,  160,
+    168,  176,  184,  192,  200
+]
+
 
 class DyeGapAdjustmentTool:
    filepath = None
@@ -625,20 +638,24 @@ class DyeGapAdjustmentTool:
       if not self.has_changed or not self.filepath:
          return
       with open(self.filepath, "wb") as f:
-          f.write(APA_FILE.format(self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(),
-                                  self.dye_1_var.get(), self.dye_1_var.get(), self.dye_1_var.get(), self.dye_1_var.get(),
-                                  self.dye_2_var.get(), self.dye_2_var.get(), self.dye_2_var.get(), self.dye_2_var.get(),
-                                  self.dye_3_var.get(), self.dye_3_var.get(), self.dye_3_var.get(), self.dye_3_var.get(),
-                                  self.dye_4_var.get(), self.dye_4_var.get(), self.dye_4_var.get(), self.dye_4_var.get(),
-                                  self.dye_5_var.get(), self.dye_5_var.get(), self.dye_5_var.get(), self.dye_5_var.get(),
-                                  self.dye_6_var.get(), self.dye_6_var.get(), self.dye_6_var.get(), self.dye_6_var.get(),
-                                  self.dye_7_var.get(), self.dye_7_var.get(), self.dye_7_var.get(), self.dye_7_var.get(),
-                                  self.dye_8_var.get(), self.dye_8_var.get(), self.dye_8_var.get(), self.dye_8_var.get(),
-                                  self.dye_9_var.get(), self.dye_9_var.get(), self.dye_9_var.get(), self.dye_9_var.get(),
-                                  self.dye_10_var.get(), self.dye_10_var.get(), self.dye_10_var.get(), self.dye_10_var.get(),
-                                  self.dye_11_var.get(), self.dye_11_var.get(), self.dye_11_var.get(), self.dye_11_var.get(),
-                                  self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(),
-                                  self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get()).encode())
+          f.write(
+             APA_FILE.format(
+                self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(), self.dye_0_var.get(),
+                self.dye_1_var.get(), self.dye_1_var.get(), self.dye_1_var.get(), self.dye_1_var.get(),
+                self.dye_2_var.get(), self.dye_2_var.get(), self.dye_2_var.get(), self.dye_2_var.get(),
+                self.dye_3_var.get(), self.dye_3_var.get(), self.dye_3_var.get(), self.dye_3_var.get(),
+                self.dye_4_var.get(), self.dye_4_var.get(), self.dye_4_var.get(), self.dye_4_var.get(),
+                self.dye_5_var.get(), self.dye_5_var.get(), self.dye_5_var.get(), self.dye_5_var.get(),
+                self.dye_6_var.get(), self.dye_6_var.get(), self.dye_6_var.get(), self.dye_6_var.get(),
+                self.dye_7_var.get(), self.dye_7_var.get(), self.dye_7_var.get(), self.dye_7_var.get(),
+                self.dye_8_var.get(), self.dye_8_var.get(), self.dye_8_var.get(), self.dye_8_var.get(),
+                self.dye_9_var.get(), self.dye_9_var.get(), self.dye_9_var.get(), self.dye_9_var.get(),
+                self.dye_10_var.get(), self.dye_10_var.get(), self.dye_10_var.get(), self.dye_10_var.get(),
+                self.dye_11_var.get(), self.dye_11_var.get(), self.dye_11_var.get(), self.dye_11_var.get(),
+                self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(), self.dye_12_var.get(),
+                self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get(), self.dye_13_var.get()
+             ).encode()
+          )
           f.write(APA_FILE_2)
       self.has_changed = False
       self.statusVar.set(FILE_SAVE_SUCCESSFULL)
@@ -646,6 +663,7 @@ class DyeGapAdjustmentTool:
 
    def mainloop(self):
       self.root.mainloop()
+
 
 if __name__ == "__main__":
    DGATool = DyeGapAdjustmentTool()

@@ -35,7 +35,20 @@ RAW_SET_DYE_COMMAND += "\t<ompcap:CmdCode>18</ompcap:CmdCode>\r\n"
 RAW_SET_DYE_COMMAND += "\t<ompcap:InputParam type=\"string\">oem_set_alignment_values 0 ,0,{},{},{},{}</ompcap:InputParam>\r\n"
 RAW_SET_DYE_COMMAND += "</ompcap:OemsiMediapathFunc>\r\n"
 
-GAP_VALUE_RANGE = [-200, -192, -184, -176, -168, -160, -152, -144, -136, -128, -120, -112, -104, -96, -88, -80, -72, -64, -56, -48, -40, -32, -24, -16, -8, 0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200]
+GAP_VALUE_RANGE = [
+   -200, -192, -184, -176, -168,
+   -160, -152, -144, -136, -128,
+   -120, -112, -104,  -96,  -88,
+    -80,  -72,  -64,  -56,  -48,
+    -40,  -32,  -24,  -16,   -8,
+      0,
+      8,   16,   24,   32,   40,
+     48,   56,   64,   72,   80,
+     88,   96,  104,  112,  120,
+    128,  136,  144,  152,  160,
+    168,  176,  184,  192,  200
+]
+
 
 def last_print_value(dye):
    if dye == 0:
@@ -43,12 +56,14 @@ def last_print_value(dye):
    else:
       return 19200
 
+
 def get_raw_line_values(line):
    new_line = str()
    for c in line:
        if c in "0123456789,":
            new_line += c
    return new_line.split(",")
+
 
 def set_dye(dye, color, value):
    success = False
@@ -69,6 +84,7 @@ def set_dye(dye, color, value):
       if "<ompcap:Result>0</ompcap:Result>" in content:
          success = True
    return success
+
 
 class DyeGapAdjustmentTool:
    has_changed = False
@@ -741,6 +757,7 @@ class DyeGapAdjustmentTool:
 
    def mainloop(self):
       self.root.mainloop()
+
 
 if __name__ == "__main__":
    DGATool = DyeGapAdjustmentTool()
